@@ -27,7 +27,7 @@ const projectData: Record<string, ProjectInfo[]> = {
   ],
   "website-3": [
     { id: "m1-1", title: "Mobile App 1", description: "First mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/mobile-1-1.jpeg", "/images/mobile-1-2.jpeg", "/images/mobile-1-3.jpg"] },
-    { id: "m1-2", title: "Mobile App 2", description: "Second mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] },
+    { id: "m1-2", title: "Mobile App 2", description: "Second mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-2.png", images: ["/images/mobile-2-1.jpg", "/images/mobile-2-2.jpg", "/images/mobile-2-3.jpg"] },
     { id: "m1-3", title: "Mobile App 3", description: "Third mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] }
   ],
   "website-4": [
