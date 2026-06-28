@@ -14,35 +14,74 @@ import ProjectDialog from "@/components/ProjectDialog";
 
 const ids = ["website-1", "website-2", "website-3", "website-4"];
 
-const projectData: Record<string, ProjectInfo[]> = {
-  "website-1": [
-    { id: "w1-1", title: "Diagnostic Portal 1", description: "First project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"] },
-    { id: "w1-2", title: "Diagnostic Portal 2", description: "Second project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-3.png", images: ["/images/web-3.png", "/images/web-2.png", "/images/web-3.png"] },
-    { id: "w1-3", title: "Diagnostic Portal 3", description: "Third project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"] }
-  ],
-  "website-2": [
-    { id: "d1-1", title: "Desktop App 1", description: "First desktop project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] },
-    { id: "d1-2", title: "Desktop App 2", description: "Second desktop project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] },
-    { id: "d1-3", title: "Desktop App 3", description: "Third desktop project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] }
-  ],
-  "website-3": [
-    { id: "m1-1", title: "Mobile App 1", description: "First mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/mobile-1-1.jpeg", "/images/mobile-1-2.jpeg", "/images/mobile-1-3.jpg"] },
-    { id: "m1-2", title: "Mobile App 2", description: "Second mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-2.png", images: ["/images/mobile-2-1.jpg", "/images/mobile-2-2.jpg", "/images/mobile-2-3.jpg"] },
-    { id: "m1-3", title: "Mobile App 3", description: "Third mobile project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-1.png", images: ["/images/app-1.png", "/images/app-1.png", "/images/app-1.png"] }
-  ],
-  "website-4": [
-    { id: "w2-2", title: "Bespoke Web 2", description: "Second luxury web project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-3.png", images: ["/images/web-3.png", "/images/web-1-1.png", "/images/web-1-2.png", "/images/web-1-3.png"] },
-    { id: "w2-1", title: "Bespoke Web 1", description: "First luxury web project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"] },
-    { id: "w2-3", title: "Bespoke Web 3", description: "Third luxury web project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"] }
-  ]
+type ProjectData = ProjectInfo & {
+  categoryTitle: string;
+  techStack: string;
+  colorClass: string;
+  size: "pc" | "mobile";
+  gridId?: string;
 };
+
+const projectsData: ProjectData[] = [
+  { 
+    id: "w1-1", 
+    gridId: "website-1", 
+    title: "AtMos", 
+    description: "IoT-Based Weather Monitoring & Predictive Analytics", 
+    details: "Atmos is a comprehensive MERN-stack platform that seamlessly integrates IoT hardware with modern web technologies to deliver real-time environmental analytics across Pakistan. Powered by a microcontroller and ESP8266 Wi-Fi module, the system continuously captures temperature, humidity, and pressure telemetry using DHT11 and BMP280 sensors. This data is securely routed through an Express.js backend to a MongoDB database, enabling advanced trend analysis and the triggering of severe weather alerts. The frontend features a highly responsive React and Tailwind CSS dashboard where users can intuitively search regional forecasts, visualize real-time climate trends, and export historical data. Ultimately, Atmos bridges the gap between physical embedded systems and predictive web software to provide an end-to-end solution for actionable weather intelligence.",
+    githubLink: "https://github.com/HasanSiddiqui05/IOT-based-Weather-Monitoring", 
+    coverImage: "/images/Atmos-1.png", 
+    images: ["/images/Atmos-1.png", "/images/Atmos-2.png", "/images/Atmos-3.png", "/images/Atmos-4.png", "/images/Atmos-5.png"], 
+    categoryTitle: "Websites", 
+    techStack: "Python • Scikit-Learn • React • Mongo", 
+    colorClass: "bg-linear-to-br from-orange-500/90 to-yellow-500/90", 
+    size: "pc" 
+  },
+  { 
+    id: "m1-1", 
+    gridId: "website-3", 
+    title: "Signify", 
+    description: "American Sign Language Learning Platform.", 
+    details: "Signify is an innovative, offline-first mobile application designed to bridge the communication gap between sign language users and non-signers. Leveraging React Native and on-device machine learning via TensorFlow Lite and MediaPipe, the app provides real-time translation of American Sign Language (ASL) static hand gestures into text and audible speech using standard smartphone cameras. Beyond translation, Signify serves as a complete learning platform by offering a reverse text-to-sign animation system, structured ASL quizzes, and a Gemini-powered AI tutor for interactive, contextual learning. Supported by a robust AWS serverless architecture, this project delivers an accessible, scalable, and seamless two-way communication experience.",
+    githubLink: "https://github.com/HasanSiddiqui05/signify-main", 
+    coverImage: "/images/app-1.png", 
+    images: ["/images/app-1.png", "/images/mobile-1-3.jpg", "/images/mobile-1-2.jpeg", "images/mobile-1-1.jpeg"], 
+    categoryTitle: "Mobile Apps", techStack: "Python • Tensorflow • ReactNative • S3 Bucket", 
+    colorClass: "bg-linear-to-br from-purple-500/90 to-pink-500/90", 
+    size: "mobile" 
+  },
+  
+  { id: "m1-2", gridId: "website-2", title: "Insight", description: "Insight Companion App for Smart Glasses.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/app-2.png", images: ["/images/app-2.png", "/images/mobile-2-1.jpg", "/images/mobile-2-2.jpg"], categoryTitle: "Mobile Apps", techStack: "React Native • Expo", colorClass: "bg-linear-to-br from-teal-500/90 to-emerald-500/90", size: "mobile" },
+  
+  { 
+    id: "w2-2", 
+    gridId: "website-4", 
+    title: "Solar POS", 
+    description: "A comprehensive point-of-sale (POS) solution for solar businesses.", 
+    details: "",
+    githubLink: "https://github.com/HasanSiddiqui05/SolarApp", 
+    coverImage: "/images/Solar-1.png", 
+    images: ["/images/Solar-5.png", "/images/Solar-1.png", "/images/Solar-3.png", "/images/Solar-4.png", "/images/Solar-2.png"], 
+    categoryTitle: "Websites", 
+    techStack: "Next • React • Mongo", 
+    colorClass: "bg-linear-to-br from-blue-500/90 to-cyan-500/90", 
+    size: "pc" 
+  },
+
+  { id: "d1-1", title: "React Zero UI", description: "Zero-overhead state management and design library.", githubLink: "https://github.com/HasanSiddiqui05/Java-CafeManagementSystem", coverImage: "/images/desktop-1.png", images: ["/images/desktop-1.png", "/images/desktop-1-1.png", "/images/desktop-1-2.png"], categoryTitle: "Desktop App", techStack: "Next • React • Mongo", colorClass: "bg-linear-to-br from-green-500/90 to-emerald-500/90", size: "pc" },
+  { id: "d1-3", title: "MiniGames Player", description: "A C# WinForms desktop application featuring three classic mini-games: Flappy Bird, Breakout, and a T-Rex endless runner.", githubLink: "https://github.com/HasanSiddiqui05/MiniGames-DesktopApplication", coverImage: "/images/desktop-2.png", images: ["/images/desktop-2.png", "/images/desktop-2-1.png", "/images/desktop-2-2.png"], categoryTitle: "Desktop App", techStack: "C# • WinForms • .NET", colorClass: "bg-linear-to-br from-red-500/90 to-rose-500/90", size: "pc" },
+  { id: "w1-2", title: "Diagnostic Portal 2", description: "Second project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-3.png", images: ["/images/web-3.png", "/images/web-2.png", "/images/web-3.png"], categoryTitle: "Websites", techStack: "Next • React", colorClass: "bg-linear-to-br from-indigo-500/90 to-blue-500/90", size: "pc" },
+  { id: "w2-1", title: "Bespoke Web 1", description: "First luxury web project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"], categoryTitle: "Websites", techStack: "Next • React", colorClass: "bg-linear-to-br from-fuchsia-500/90 to-pink-500/90", size: "pc" }
+];
 
 export default function Home() {
   const gridRef = useRef<HTMLDivElement>(null);
   const progress = useScrollProgress(gridRef);
   const rawOffsets = useOffset(ids);
-  
+
   const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(null);
+  const [showMore, setShowMore] = useState(false);
+  const visibleProjects = showMore ? projectsData : projectsData.slice(0, 4);
 
   // Mathematically precise shift compensations to align and stack fanned cards in the Hero
   const OFFSET_TUNING: Record<string, { rot: number }> = {
@@ -56,7 +95,7 @@ export default function Home() {
     ids.map((id) => {
       const base = rawOffsets[id] || { x: 0, y: 0 };
       const t = OFFSET_TUNING[id];
-      
+
       // Dynamic responsiveness: grab dimensions calculated by useOffset
       const tw = base.targetW || 420;
       const th = base.targetH || 320;
@@ -65,7 +104,7 @@ export default function Home() {
 
       // Scale card to perfectly fit the Hero target bounds no matter the screen size
       const dynamicScale = Math.min(tw / gw, th / gh, 1);
-      
+
       // Calculate necessary shift to center the scaled card precisely within the target bounds
       // This mathematically compensates for CSS `transform-origin: center`
       const dx = (tw - gw) / 2;
@@ -98,19 +137,19 @@ export default function Home() {
       <div id="hero" className="max-w-6xl mx-auto px-4 sm:px-6 min-h-[85vh] flex flex-col justify-center gap-4 sm:gap-8 pt-24 sm:pt-32 pb-10 mt-10">
 
         {/* Top Row: Name and Images Container */}
-        <div className="flex flex-row items-start justify-between w-full">
+        <div className="flex flex-row items-stretch justify-between w-full">
           {/* Left Side: Name */}
           <div className="w-[55%] sm:flex-1 pr-1 sm:pr-4">
-            <h1 className="text-[10.5vw] sm:text-6xl md:text-[5rem] lg:text-[6rem] font-bold leading-[1.05] tracking-tight text-white">
-              Hasan<br/>Shahab<br className="sm:hidden" /> <span className="hidden sm:inline"> </span>Siddiqui
+            <h1 className="text-[10.5vw] sm:text-6xl md:text-[5rem] font-bold leading-[1.05] tracking-tight text-white">
+              Hasan<br />Shahab<br className="sm:hidden" /> <span className="hidden sm:inline"> </span>Siddiqui
             </h1>
           </div>
 
           {/* Right Side: Stack Anchor */}
-          <div className="w-[45%] sm:flex-1 flex justify-end items-start relative mt-1 sm:mt-0">
+          <div className="w-[45%] sm:flex-1 flex justify-end items-stretch relative mt-1 sm:mt-0">
             <div
               data-stack-target-id
-              className="relative w-full aspect-[4/3] sm:w-[420px] sm:h-[320px] max-w-[420px] max-h-[320px] rounded-2xl  bg-white/[0.01] shadow-2xl backdrop-blur-3xl"
+              className="relative w-full lg:w-[420px] lg:h-[320px] max-w-[420px] rounded-2xl bg-white/[0.01] shadow-2xl backdrop-blur-3xl"
             >
               <div className="absolute inset-0 rounded-2xl  flex items-center justify-center text-white/10 text-xs sm:text-sm select-none opacity-50">
                 Stack Anchor
@@ -120,10 +159,9 @@ export default function Home() {
         </div>
 
         {/* Bottom Row: Description & Button */}
-        <div className="w-full flex flex-col items-start gap-6 sm:gap-8 mt-4 sm:mt-6">
-          <p className="text-[4.2vw] sm:text-xl text-white/70 max-w-xl leading-relaxed">
-            Software Engineer focused on building modern web applications,
-            scalable backend systems, and interactive user experiences.
+        <div className="w-full flex flex-col items-start gap-6 sm:gap-8 lg:mt-[-70px] mt-5 sm:mt-1">
+          <p className="text-[4.2vw] sm:text-xl text-[20px] text-white/70 max-w-xl leading-relaxed">
+            I am a Software Engineer specializing in full-stack development, backend architecture, and API-driven applications. I build scalable and responsive solutions using the MERN stack, with expertise in JavaScript, Python, Java, and C#.
           </p>
 
           <a href="https://github.com/HasanSiddiqui05" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-1.5 py-1.5 pr-6 rounded-full bg-[linear-gradient(90deg,rgb(127,64,255),rgb(170,66,255))] text-white font-medium hover:scale-105 transition-transform shadow-[0_0_20px_rgba(170,66,255,0.4)] border border-purple-500/30">
@@ -136,72 +174,46 @@ export default function Home() {
 
       </div>
 
-      <h6 id="projects" className="max-w-7xl mx-auto mb-16 text-4xl md:text-7xl font-medium pl-10 pt-20 bg-clip-text text-transparent bg-[linear-gradient(0deg,rgb(127,64,255),rgb(255,255,255))]">Projects</h6>
+      <h6 id="projects" className="max-w-7xl mx-auto mb-16 text-4xl md:text-7xl font-medium pl-10 sm:pt-10 pt-4 md:pt-20 bg-clip-text text-transparent bg-[linear-gradient(0deg,rgb(127,64,255),rgb(255,255,255))]">Projects</h6>
 
-      <div ref={gridRef} className="grid gap-16 grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto px-6 pb-32">
-        <AnimatedProjectCard
-          gridId="website-1"
-          offset={offsets["website-1"]}
-          progress={progress}
-          colorClass="bg-linear-to-br from-orange-500/90 to-yellow-500/90"
-          title="Websites"
-          techStack="Next • React • Mongo"
-          cardTitle="Automedics Diagnostics"
-          cardDesc="Advanced automotive fault analysis and tracking portal."
-          size= "pc"
-          projects={projectData["website-1"]}
-          onProjectClick={setSelectedProject}
-        />
-
-        <AnimatedProjectCard
-          gridId="website-2"
-          offset={offsets["website-2"]}
-          progress={progress}
-          colorClass="bg-linear-to-br from-green-500/90 to-emerald-500/90"
-          title="Desktop App"
-          techStack="Next • React • Mongo"
-          cardTitle="React Zero UI"
-          cardDesc="Zero-overhead state management and design library."
-          size="mobile"
-          projects={projectData["website-2"]}
-          onProjectClick={setSelectedProject}
-        />
-
-        <AnimatedProjectCard
-          gridId="website-3"
-          offset={offsets["website-3"]}
-          progress={progress}
-          colorClass="bg-linear-to-br from-blue-500/90 to-cyan-500/90"
-          title="Mobile Apps"
-          techStack="Next • React • Mongo"
-          cardTitle="Signify Moible App"
-          cardDesc="Comprehensive private contractor defense operations."
-          size="mobile"
-          projects={projectData["website-3"]}
-          onProjectClick={setSelectedProject}
-        />
-
-        <AnimatedProjectCard
-          gridId="website-4"
-          offset={offsets["website-4"]}
-          progress={progress}
-          colorClass="bg-linear-to-br from-purple-500/90 to-pink-500/90"
-          title="Websites"
-          techStack="Next • React • Mongo"
-          cardTitle="Bespoke Automotive"
-          cardDesc="Ultra-luxury bespoke aesthetic design configuration studio."
-          size="pc"
-          projects={projectData["website-4"]}
-          onProjectClick={setSelectedProject}
-        />
+      <div ref={gridRef} className="grid gap-16 grid-cols-1 md:grid-cols-2 max-w-7xl mx-auto px-6 pb-16">
+        {visibleProjects.map((proj) => (
+          <AnimatedProjectCard
+            key={proj.id}
+            gridId={proj.gridId || `grid-${proj.id}`}
+            offset={proj.gridId ? offsets[proj.gridId] : undefined}
+            progress={proj.gridId ? progress : 1}
+            colorClass={proj.colorClass}
+            title={proj.categoryTitle}
+            techStack={proj.techStack}
+            cardTitle={proj.title}
+            cardDesc={proj.description}
+            size={proj.size}
+            project={proj}
+            onProjectClick={setSelectedProject}
+          />
+        ))}
       </div>
+
+      {/* View More Button */}
+      {!showMore && (
+        <div className="flex justify-center pb-32">
+          <button 
+            onClick={() => setShowMore(true)}
+            className="px-8 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium transition-colors border border-white/20 backdrop-blur-sm"
+          >
+            View More Projects
+          </button>
+        </div>
+      )}
+      {showMore && <div className="pb-8" />}
 
       <div id="experience">
         <ExperienceSection />
       </div>
 
       <div id="skills">
-        <SkillsSection/>
+        <SkillsSection />
       </div>
 
       <ContactSection />

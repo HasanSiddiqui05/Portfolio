@@ -7,6 +7,7 @@ export type ProjectInfo = {
   id: string;
   title: string;
   description: string;
+  details?: string;
   githubLink: string;
   images: string[];
   coverImage: string;
@@ -22,8 +23,9 @@ interface AnimatedProjectCardProps {
   techStack: string
   cardTitle?: string
   cardDesc?: string
+  cardDetail?: string
   index?: number
-  projects?: ProjectInfo[]
+  project?: ProjectInfo
   onProjectClick?: (project: ProjectInfo) => void
 }
 
@@ -36,7 +38,7 @@ export default function AnimatedProjectCard({
   techStack,
   cardTitle,
   cardDesc,
-  projects,
+  project,
   onProjectClick,
   size
 }: AnimatedProjectCardProps) {
@@ -101,36 +103,36 @@ export default function AnimatedProjectCard({
           </div>
             
           {/* Floating Website Mockups */}
-          {projects && projects.length > 0 && (
+          {project && project.images && project.images.length > 0 && (
             <div className="absolute w-[100%] h-[100%] bottom-[-20px] left-1/2 -translate-x-1/2 flex items-end justify-center pointer-events-auto">
 
               {/* LEFT IMAGE */}
-                {projects[1] && (
+                {project.images[1] && (
                   <img
-                    src={projects[1].coverImage}
+                    src={project.images[1]}
                     alt=""
-                    className={`mockup-image side-image ${size === 'pc' ? 'left-image-pc' : 'left-image-mobile'}`}
-                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(projects[1]); }}
+                    className={`mockup-image side-image ${size === 'pc' ? 'left-image-pc' : 'left-image-mobile'} rounded-xl object-cover`}
+                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(project); }}
                   />
                 )}
 
                 {/* CENTER IMAGE */}
-                {projects[0] && (
+                {project.images[0] && (
                   <img
-                    src={projects[0].coverImage}
+                    src={project.images[0]}
                     alt=""
-                    className={`mockup-image center-image ${size === 'pc' ? 'center-pc' : 'center-mobile'}`}
-                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(projects[0]); }}
+                    className={`mockup-image center-image ${size === 'pc' ? 'center-pc' : 'center-mobile'} rounded-xl object-cover`}
+                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(project); }}
                   />
                 )}
 
                 {/* RIGHT IMAGE */}
-                {projects[2] && (
+                {project.images[2] && (
                   <img
-                    src={projects[2].coverImage}
+                    src={project.images[2]}
                     alt=""
-                    className={`mockup-image side-image ${size === 'pc' ? 'right-image-pc' : 'right-image-mobile'}`}
-                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(projects[2]); }}
+                    className={`mockup-image side-image ${size === 'pc' ? 'right-image-pc' : 'right-image-mobile'} rounded-xl object-cover`}
+                    onClick={(e) => { e.stopPropagation(); onProjectClick?.(project); }}
                   />
                 )}
             </div>

@@ -104,10 +104,12 @@ export default function ProjectDialog({ project, onClose }: { project: ProjectIn
           <div className="w-full md:w-2/5 p-8 md:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10 bg-gradient-to-b from-white/[0.02] to-transparent">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 bg-clip-text text-transparent bg-[linear-gradient(0deg,rgb(127,64,255),rgb(255,255,255))]">{project.title}</h2>
             
-            <div className="flex flex-col gap-6 flex-1">
-              <p className="text-white/70 leading-relaxed text-base sm:text-lg">
-                {project.description}
-              </p>
+            <div className="flex flex-col gap-6 flex-1 min-h-0">
+              <div className="overflow-y-auto max-h-[250px] sm:max-h-[300px] md:max-h-[350px] pr-2 custom-scrollbar">
+                <p className="text-white/70 leading-relaxed text-base  whitespace-pre-wrap">
+                  {project.details || project.description}
+                </p>
+              </div>
               
               <div className="mt-8 md:mt-auto pt-8">
                 <a 
