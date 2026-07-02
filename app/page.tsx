@@ -58,7 +58,7 @@ const projectsData: ProjectData[] = [
     gridId: "website-4", 
     title: "Solar POS", 
     description: "A comprehensive point-of-sale (POS) solution for solar businesses.", 
-    details: "",
+    details: "A full-featured Point of Sale (POS) and business management system engineered specifically for the solar energy sector. This application streamlines daily operations by unifying product inventory management, retail sales logging, and service tracking into a single interface. It features a robust analytics dashboard with dynamic graphical reports, allowing administrators to filter and visualize different sales trends, monitor total revenue, and make data-driven business decisions.",
     githubLink: "https://github.com/HasanSiddiqui05/SolarApp", 
     coverImage: "/images/Solar-1.png", 
     images: ["/images/Solar-5.png", "/images/Solar-1.png", "/images/Solar-3.png", "/images/Solar-4.png", "/images/Solar-2.png"], 
@@ -68,10 +68,6 @@ const projectsData: ProjectData[] = [
     size: "pc" 
   },
 
-  { id: "d1-1", title: "React Zero UI", description: "Zero-overhead state management and design library.", githubLink: "https://github.com/HasanSiddiqui05/Java-CafeManagementSystem", coverImage: "/images/desktop-1.png", images: ["/images/desktop-1.png", "/images/desktop-1-1.png", "/images/desktop-1-2.png"], categoryTitle: "Desktop App", techStack: "Next • React • Mongo", colorClass: "bg-linear-to-br from-green-500/90 to-emerald-500/90", size: "pc" },
-  { id: "d1-3", title: "MiniGames Player", description: "A C# WinForms desktop application featuring three classic mini-games: Flappy Bird, Breakout, and a T-Rex endless runner.", githubLink: "https://github.com/HasanSiddiqui05/MiniGames-DesktopApplication", coverImage: "/images/desktop-2.png", images: ["/images/desktop-2.png", "/images/desktop-2-1.png", "/images/desktop-2-2.png"], categoryTitle: "Desktop App", techStack: "C# • WinForms • .NET", colorClass: "bg-linear-to-br from-red-500/90 to-rose-500/90", size: "pc" },
-  { id: "w1-2", title: "Diagnostic Portal 2", description: "Second project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-3.png", images: ["/images/web-3.png", "/images/web-2.png", "/images/web-3.png"], categoryTitle: "Websites", techStack: "Next • React", colorClass: "bg-linear-to-br from-indigo-500/90 to-blue-500/90", size: "pc" },
-  { id: "w2-1", title: "Bespoke Web 1", description: "First luxury web project description.", githubLink: "https://github.com/HasanSiddiqui05", coverImage: "/images/web-2.png", images: ["/images/web-2.png", "/images/web-3.png", "/images/web-2.png"], categoryTitle: "Websites", techStack: "Next • React", colorClass: "bg-linear-to-br from-fuchsia-500/90 to-pink-500/90", size: "pc" }
 ];
 
 export default function Home() {
